@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+<h1 class="text-5xl">Users </h1>
+
+<div class="grid grid-cols-5 gap-4">
+        <div class="shadow-lg rounded float-left bg-white dark:bg-gray-800 p-4">
+            <div class="flex-row gap-4 flex justify-center items-center">
+                <div class="flex-shrink-0">
+
+                </div>
+                <div class=" flex flex-col">
+            <span class="text-gray-600 dark:text-white text-lg font-medium">
+                {{ post.title }}
+            </span>
+
+                </div>
+            </div>
+        </div>
+    {% for comment in comments %}
+       {{ comment.content }}
+    {% endfor %}
+</div>
+
+
+    {{ form_start(form) }}
+
+    <hr>
+    {{ form_row(form.content) }}
+    <input type="submit" class="btn btn-primary" value="Send">
+    {{ form_end(form,  {'render_rest': false}) }}
+
+
+{% endblock %}

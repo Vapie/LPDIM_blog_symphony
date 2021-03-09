@@ -1,0 +1,16 @@
+header{
+    background-color: lightblue;
+}
+
+.description-summary{
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+.postlist-container{
+    border:1px solid black;
+}
+
