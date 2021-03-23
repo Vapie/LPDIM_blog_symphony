@@ -24,11 +24,7 @@ class Post
      */
     private $content;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $author;
+
 
     /**
      * @ORM\Column(type="datetime")
@@ -55,6 +51,12 @@ class Post
      */
     private $title;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -77,17 +79,7 @@ class Post
         return $this;
     }
 
-    public function getAuthor(): ?User
-    {
-        return $this->author;
-    }
 
-    public function setAuthor(?User $author): self
-    {
-        $this->author = $author;
-
-        return $this;
-    }
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -163,6 +155,18 @@ class Post
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

@@ -29,7 +29,7 @@ class CommentController extends AbstractController
      * @Route("/comment/new/{postid}", name="comment_new")
      */
     public function new(EntityManagerInterface $entityManager, Request $request, int $postid){
-        $user = $entityManager->getRepository(User::class)->findOneBy(['username'=>'Vapie']);
+        $user = $this->getUser();
         $post = $entityManager->getRepository(Post::class)->findOneBy(['id'=>$postid]);
 
         if($request->isMethod('POST')){
